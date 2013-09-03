@@ -2,6 +2,7 @@
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
   <title>6invy | <%= yield_or_default(:page_title,"The one") %></title>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application"  %>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
