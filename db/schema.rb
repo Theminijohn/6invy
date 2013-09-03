@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901060437) do
+ActiveRecord::Schema.define(version: 20130903110438) do
 
   create_table "clips", force: true do |t|
     t.string   "title"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20130901060437) do
     t.integer  "user_id"
     t.string   "vine_link"
     t.string   "instagram_link"
+    t.string   "slug"
   end
+
+  add_index "clips", ["slug"], name: "index_clips_on_slug"
 
   create_table "shows", force: true do |t|
     t.string   "name"

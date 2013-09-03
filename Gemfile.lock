@@ -59,6 +59,8 @@ GEM
     execjs (2.0.1)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    friendly_id (5.0.0.beta4)
+      activerecord (~> 4.0.0)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -86,6 +88,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.9)
     multipart-post (1.2.0)
+    nokogiri (1.5.10)
     nokogiri (1.5.10-x86-mingw32)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -190,6 +193,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   designmodo-flatuipro-rails
   devise
+  friendly_id (= 5.0.0.beta4)
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-sass-rails

@@ -67,3 +67,6 @@ gem 'omniauth-twitter'
 # Pagination
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+# Friendly ID
+gem 'friendly_id', '5.0.0.beta4'

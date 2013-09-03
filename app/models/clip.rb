@@ -7,8 +7,6 @@ class Clip < ActiveRecord::Base
 	validates :vine_link, :presence => true, :if => Proc.new {instagram_link.blank?}
 	validates :instagram_link, :presence => true, :if => Proc.new {vine_link.blank?}
 
-
-
 	belongs_to :user
 
 	def to_param
