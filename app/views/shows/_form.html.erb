@@ -1,0 +1,78 @@
+<%= simple_form_for(@show, html: { class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <!-- Cover Uploading Field -->
+  <div class="control-group">
+    <label class="control-label">Upload a Cover</label>
+    <div class="controls">
+      <%= f.input :cover, label: false %>
+    </div>
+  </div>
+
+  <!-- Avatar Uploading Field -->
+  <div class="control-group">
+    <label class="control-label">Upload an Avatar</label>
+    <div class="controls">
+      <%= f.input :avatar, label: false %>
+    </div>
+  </div>
+
+  <!-- Show Name Field -->
+  <div class="control-group">
+    <label class="control-label">Your Show's Name</label>
+    <div class="controls">
+      <%= f.input :name, label: false %>
+    </div>
+  </div>
+
+  <!-- Show Title Field -->
+  <div class="control-group">
+    <label class="control-label">Your Show's Title</label>
+    <div class="controls">
+      <%= f.input :show_title, label: false %>
+    </div>
+  </div>
+
+  <!-- Show Announcement Field -->
+  <div class="control-group">
+    <label class="control-label">Show Announcement</label>
+    <div class="controls">
+      <%= f.input :announcement, as: :text, input_html: { rows: "3" }, label: false %>
+    </div>
+  </div>
+
+  <!-- Facebook Link Field -->
+  <div class="control-group">
+    <label class="control-label">Your Facebook Link</label>
+    <div class="controls">
+      <%= f.input :facebook_link, label: false %>
+    </div>
+  </div>
+
+  <!-- Twitter Link Field -->
+  <div class="control-group">
+    <label class="control-label">Your Twitter Link</label>
+    <div class="controls">
+      <%= f.input :twitter_link, label: false %>
+    </div>
+  </div>
+
+  <!-- Instagram Link Field -->
+  <div class="control-group">
+    <label class="control-label">Your Instagram Link</label>
+    <div class="controls">
+      <%= f.input :instagram_link, label: false %>
+    </div>
+  </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-embossed btn-primary" %>
+
+    <%= link_to @show, method: :delete, data: { confirm: 'Are you sure?' },
+                class: "btn btn-small btn-danger" do %>
+      <i class="icon-trash "></i> Delete
+    <% end %>
+  </div>
+<% end %>

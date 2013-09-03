@@ -1,0 +1,37 @@
+<%= simple_form_for(@clip) do |f| %>
+  <%= f.error_notification %>
+
+  <div id="login" class="login">
+
+    <form>
+
+      <fieldset>
+
+        <p>
+          <%= f.input :title, input_html: { class: 'login-form-block'},
+                      :autofocus=>true, label: false, placeholder: "Title",
+                      :hint => "Enter a Title for your Clip" %>
+        </p>
+        <br>
+        <p>
+          <%= f.input :vine_link, input_html: { class: 'login-form-block' },
+                      label: false, placeholder: "Vine Code",
+                      :hint => "https://vine.co/v/ThisIsTheCode"%>
+        </p>
+        <br>
+        <p>
+          <%= f.input :instagram_link, input_html: { class: 'login-form-block' },
+                      label: false, placeholder: "Instagram Code",
+                      :hint => "http://instagram.com/p/ThisIsTheCode/" %>
+        </p>
+
+        <p>
+          <%= f.submit "Create Clip", class: "btn btn-info btn-embossed btn-block" %>
+        </p>
+
+      </fieldset>
+
+    </form>
+  </div>
+
+<% end %>

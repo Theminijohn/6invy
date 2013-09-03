@@ -1,0 +1,144 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :avatar_file_size, class: "alert alert-error" %>
+  <%= f.full_error :avatar_content_type, class: "alert alert-error" %>
+  <%= f.full_error :profile_cover_file_size, class: "alert alert-error" %>
+  <%= f.full_error :profile_cover_content_type, class: "alert alert-error" %>
+
+  <!-- User Avatar Field -->
+  <div class="control-group">
+    <label class="control-label">Upload an Avatar</label>
+    <div class="controls">
+      <%= f.input :avatar, label: false %>
+    </div>
+  </div>
+
+  <!-- User Cover Field -->
+  <div class="control-group">
+    <label class="control-label">Your Profile Cover</label>
+    <div class="controls">
+      <%= f.input :profile_cover, label: false %>
+    </div>
+  </div>
+
+  <!-- User Name Field -->
+  <div class="control-group">
+    <label class="control-label">User Name</label>
+    <div class="controls">
+      <%= f.input :user_name, label: false %>
+    </div>
+  </div>
+
+  <!-- User Status Field -->
+  <div class="control-group">
+    <label class="control-label">Update your Status</label>
+    <div class="controls">
+      <%= f.input :status, label: false %>
+    </div>
+  </div>
+
+  <!-- First Name Field -->
+  <div class="control-group">
+    <label class="control-label">First Name</label>
+    <div class="controls">
+      <%= f.input :first_name, label: false %>
+    </div>
+  </div>
+
+  <!-- Last Name Field -->
+  <div class="control-group">
+    <label class="control-label">Last Name</label>
+    <div class="controls">
+      <%= f.input :last_name, label: false %>
+    </div>
+  </div>
+
+  <!-- Email Field -->
+  <div class="control-group">
+    <label class="control-label">Your Email </label>
+    <div class="controls">
+      <%= f.input :email, label: false %>
+    </div>
+  </div>
+
+  <!-- Facebook Link Field -->
+  <div class="control-group">
+    <label class="control-label">Your Facebook Link</label>
+    <div class="controls">
+      <%= f.input :facebook_link, label: false %>
+    </div>
+  </div>
+
+  <!-- Twitter Link Field -->
+  <div class="control-group">
+    <label class="control-label">Your Twitter Link</label>
+    <div class="controls">
+      <%= f.input :twitter_link, label: false %>
+    </div>
+  </div>
+
+  <!-- Instagram Link Field -->
+  <div class="control-group">
+    <label class="control-label">Your Instagram Link</label>
+    <div class="controls">
+      <%= f.input :instagram_link, label: false %>
+    </div>
+  </div>
+
+  <!-- New Password Field -->
+  <div class="control-group">
+    <label class="control-label">New Password</label>
+    <div class="controls">
+      <%= f.input :password, label: false %>
+    </div>
+  </div>
+
+  <!-- New Password Confirmation Field -->
+  <div class="control-group">
+    <label class="control-label">New Password Confirmation</label>
+    <div class="controls">
+      <%= f.input :password_confirmation, label: false %>
+    </div>
+  </div>
+
+
+  <div class="form-actions">
+    <%= f.submit "Update", class: "btn btn-primary btn-embossed"%>
+
+    <div class="btn-group">
+      <%= link_to "#UserCancellation", title: "Cancel your Account", :data => {:toggle=>"modal"}, class: "btn btn-embossed btn-danger" do %>
+        <i class="icon-trash icon-white"></i> I'm Unhappy
+      <% end %>
+    </div>
+
+    <!-- Modal -->
+    <div id="UserCancellation" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close fui-cross" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel">Are you sure <%= @user.first_name %>?</h3>
+      </div>
+      <div class="modal-body">
+        <p>
+        <h6>Your Profile, Show and Clips will be permanently deleted</h6>
+
+        People who subscribed to your Show will no longer be able to access your content. Links to your
+        Clips, Profile and Show will be redirected to a 404 Page. All your Content will permanently deleted.
+
+        <h5>Your Account will be permanently deleted</h5>
+
+        Once Cancellation is done, you can not reopen your Account. Your username will be set free.
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <%= link_to registration_path(resource_name),  :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger" do %>
+          <i class="icon-warning-sign"></i> Cancel my Account
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

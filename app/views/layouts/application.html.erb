@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+  <title>6invy</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link type="text/css" rel="stylesheet" src="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <meta property="fb:app_id" content="355060907960720"/>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic,700italic' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=355060907960720";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="container">
+
+      <%= render 'layouts/header' %>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, class: "alert alert-#{name}") do%>
+          <%=msg%>
+          <button type="button" class="close fui-cross" data-dismiss="alert"></button>
+        <%end%>
+
+      <% end %>
+
+      <%= yield %>
+
+      <%= render 'layouts/footer' %>
+    </div>
+  <!-- UserVoice JavaScript SDK (only needed once on a page) -->
+  <script>(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/x9tItT4jD5gU4slMUewyFw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()</script>
+
+  <!-- A tab to launch the Classic Widget -->
+  <script>
+    UserVoice = window.UserVoice || [];
+    UserVoice.push(['showTab', 'classic_widget', {
+      mode: 'feedback',
+      primary_color: '#cc6d00',
+      link_color: '#007dbf',
+      forum_id: 220761,
+      tab_label: 'Feedback',
+      tab_color: '#34495e',
+      tab_position: 'bottom-left',
+      tab_inverted: false
+    }]);
+  </script>
+
+</body>
+</html>

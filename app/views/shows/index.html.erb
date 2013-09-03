@@ -1,0 +1,12 @@
+<div class="show-page-unit">
+  <h1>Shows</h1>
+  <h4>Pick amongst a variety of cool Shows</h4>
+
+</div>
+
+<div id="clips-masonry" data-no-turbolink>
+  <%= render @shows %>
+</div>
+
+
+<%= will_paginate @shows %>

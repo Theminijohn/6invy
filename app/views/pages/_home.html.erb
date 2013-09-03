@@ -1,0 +1,15 @@
+<div class="hero-unit">
+  <h1>Welcome to 6invy</h1>
+  <p>
+    The vine & Instagram Tube
+  </p>
+  <p>
+    <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-embossed btn-info" %>
+
+    <%= link_to user_omniauth_authorize_path(:facebook),
+                class: "btn btn-embossed btn-social-facebook" do %>
+      <i class="icon-facebook"></i> | Connect with Facebook
+    <% end %>
+
+  </p>
+</div>

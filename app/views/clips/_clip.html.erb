@@ -1,0 +1,41 @@
+<div class="clip-box clips-masonry" data-no-turbolink>
+
+  <% if clip.vine_link.present? %>
+
+    <div align="center iframe-div" style="position: relative;" data-no-turbolink>
+
+      <!-- Vine Video-->
+      <%= link_to "", clip, class: "iframe-link" %>
+      <iframe class="vine-embed"
+              src="https://vine.co/v/<%= clip.vine_link %>/embed/simple"
+              width="200" height="200" frameborder="0"
+              wmode="Opaque" class="video-iframe" allowtransparency="false">
+      </iframe>
+
+    </div>
+
+  <% else %>
+
+    <div align="center iframe-div" style="position: relative;" data-no-turbolink>
+
+      <!-- Instagram Video -->
+      <%= link_to "", clip, class: "iframe-link" %>
+      <iframe src="http://instagram.com/p/<%= clip.instagram_link %>/embed/"
+              width="190" height="200" frameborder="0" scrolling="no"
+              wmode="Opaque" class="video-iframe" allowtransparency="false">
+      </iframe>
+    </div>
+
+  <% end %>
+
+  <p class="clip-title" data-no-turbolink>
+    <%= clip.title %>
+  </p>
+
+  <p class="clip-uploader pull-left" data-no-turbolink>
+    <strong>
+      <%= link_to clip.user.show.name, clip.user.show %>
+    </strong>
+  </p>
+
+</div>

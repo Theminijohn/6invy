@@ -1,0 +1,11 @@
+<div class="demo-headline">
+  <h1 class="demo-logo">
+    <div class="logo"></div>
+    You Rock !
+    <small>Welcome <%= @user.first_name %></small>
+  </h1>
+
+  <%= link_to "Create a New Show", new_show_path,
+              class: "btn btn-huge btn-embossed btn-info" %>
+
+</div>

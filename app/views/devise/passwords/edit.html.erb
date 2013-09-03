@@ -1,0 +1,37 @@
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div id="login" class="login hero-unit">
+
+    <b>Change your Password</b><br>
+
+    <br>
+
+    <form>
+
+      <fieldset>
+
+        <p>
+          <%= f.input :password, input_html: { class: 'login-form-block' },
+                      :autofocus=>true, label: false, placeholder: "New Password" %>
+        </p>
+
+        <p>
+          <%= f.input :password_confirmation, input_html: { class: 'login-form-block' },
+                       label: false, placeholder: "Confirm your new Password" %>
+        </p>
+
+        <p>
+          <%= f.submit "Change my Password",
+                       class: "btn btn-info btn-block btn-embossed" %>
+        </p>
+
+      </fieldset>
+
+    </form>
+  </div>
+
+<% end %>
+
+

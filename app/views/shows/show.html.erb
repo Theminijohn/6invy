@@ -1,0 +1,160 @@
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+
+
+  <div class="span3">
+
+    <% if current_user == @host %>
+      <%= link_to "Edit your Show", edit_show_path,
+                  class: "btn btn-embossed btn-danger btn-block" %>
+      <br>
+    <% end %>
+
+    <div class="show-share-buttons">
+      <fb:like href="<%= request.original_url %>" width="100%" layout="button_count" show_faces="false" send="true"></fb:like>
+      <br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="6invy" data-lang="en-gb">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <br>
+      <!-- Place this tag where you want the +1 button to render. -->
+      <div class="g-plusone" data-size="medium"></div>
+
+      <!-- Place this tag after the last +1 button tag. -->
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+    </div><!-- Clip Share Buttons END -->
+
+    <br>
+
+    <% if @show.announcement.present? %>
+    <div class="show_announcement show_announcement_badge ">
+      <%= @show.announcement %>
+    </div>
+    <% end %>
+
+    <% if @show.avatar.present? %>
+      <br>
+      <div class="show_avatar">
+        <%= image_tag @show.avatar(:avatar), class: "show_avatar_picture" %>
+      </div>
+    <% end %>
+
+
+  </div>
+
+
+  <div class="span9">
+
+    <div class="show_cover">
+      <div class="cover">
+        <%= image_tag @show.cover(:show_cover) %>
+
+        <!-- Mouseover Options-->
+        <% if current_user == @host %>
+          <div class="options">
+            <%= link_to "Edit #{@show.name} Show", edit_show_path,
+                        class: "btn btn-embossed btn-danger btn-mini" %>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="show_cover_info">
+
+        <div class="pull-left">
+          <b><%= link_to @show.name, @show %></b><br>
+          <% if @show.show_title.present? %>
+            <small><%= @show.show_title %></small>
+          <% else %>
+            <br>
+          <% end %>
+        </div>
+
+        <div class="pull-right">
+          <% if @show.facebook_link.present? %>
+            <%= link_to @show.facebook_link, :target => '_blank',
+                        class: "btn btn-embossed btn-mini btn-social-facebook" do %>
+              <i class="icon-facebook"></i> | Facebook
+            <% end %>
+          <% end %>
+
+          <% if @show.twitter_link.present? %>
+            <%= link_to @show.twitter_link, :target => '_blank',
+                        class: "btn btn-embossed btn-mini btn-social-twitter" do %>
+              <i class="icon-twitter"></i> | Twitter
+            <% end %>
+          <% end %>
+
+          <% if @show.instagram_link.present? %>
+            <%= link_to @show.instagram_link, :target => '_blank',
+                        class: "btn btn-embossed btn-mini btn-social-instagram" do %>
+              <i class="icon-instagram"></i> | Instagram
+            <% end %>
+          <% end %>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <% if current_user == @host %>
+      <% unless @clips.present? %>
+
+        <center>
+          <h4>Hey <%= @host.first_name %>, a nice looking show you have. <br>
+          Get your Show starting and add your First Clip's</h4>
+
+          <%= link_to new_clip_path,
+                      class: "btn btn-embossed btn-info btn-large" do %>
+            <i class="icon-plus"></i> | Add your First Clip
+          <% end %>
+
+          <br>
+
+          <% if @show.cover.present? %>
+            <small>Cool, you're good to go</small>
+          <% else %>
+            <small>Wait, isn't there supposed to be a <%= link_to "Cover", "#AddDesign", :data => {:toggle=>"modal"} %>?</small>
+          <% end %>
+        </center>
+
+        <div id="AddDesign" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close fui-cross" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 id="myModalLabel">Update your Show</h3>
+          </div>
+          <div class="modal-body">
+            <p>
+              <%= @host.first_name %>, <br>
+              please consider uploading an <b>Avatar</b> and a <b>Cover</b> before you
+              upload any Clips.<br>
+              <br>
+              Your Show will get more attention and be more visible throughout
+              6invy.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-embossed" data-dismiss="modal" aria-hidden="true">Close</button>
+            <%= link_to "Edit your Show", edit_show_path, class: "btn btn-embossed btn-info" %>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+
+    <div id="clips-masonry">
+      <%= render @clips %>
+    </div>
+
+  </div>
+
+
+
+</div>

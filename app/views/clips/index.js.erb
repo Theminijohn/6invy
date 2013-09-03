@@ -1,0 +1,10 @@
+$boxes = $('<%= j render(@clips) %>')
+
+$('#clips-masonry').append( $boxes ).imagesLoaded( function(){
+  $('#clips-masonry').masonry( 'reload');
+});
+<% if @clips.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@clips) %>');
+<% else %>
+$('.pagination').remove();
+<% end %>

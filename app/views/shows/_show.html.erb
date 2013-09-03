@@ -1,0 +1,24 @@
+<div class="show-show-page-show clips-masonry">
+  <div id="show-card">
+
+    <div class="img-wrapper">
+      <%= image_tag show.avatar %>
+    </div>
+
+    <h1>
+      <%= show.name %>
+    </h1>
+
+    <h2>
+      <%= show.show_title %>
+    </h2>
+
+    <br>
+
+    <div class="btn-wrapper">
+      <%= link_to "Visit the Show", show,
+                  class: "btn btn-block btn-embossed btn-primary" %>
+    </div>
+
+  </div>
+</div>
