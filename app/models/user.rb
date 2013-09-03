@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable, :omniauthable,
 				 :omniauth_providers => [:facebook, :twitter]
 
+	attr_accessor :just_signed_up
+
 
 	# Facebook Settings
 	def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
@@ -19,6 +21,8 @@ class User < ActiveRecord::Base
 												 uid:auth.uid,
 												 email:auth.info.email,
 												 password:Devise.friendly_token[0,20])
+			user.just_signed_up = true
+			user
 		end
 	end
 
