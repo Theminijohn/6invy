@@ -23,6 +23,6 @@ module Vinerity
 		# Required for Devise on Heroku
 		config.assets.initialize_on_precompile = false
 
-		config.assets.enabled = false
+		config.assets.enabled = true
   end
 end
