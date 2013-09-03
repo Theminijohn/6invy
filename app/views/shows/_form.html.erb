@@ -68,11 +68,9 @@
 
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-embossed btn-primary" %>
-
-    <%= link_to @show, method: :delete, data: { confirm: 'Are you sure?' },
-                class: "btn btn-small btn-danger" do %>
-      <i class="icon-trash "></i> Delete
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-embossed") do %>
+      <i class="fui-check pull-right"></i> Update
     <% end %>
+
   </div>
 <% end %>

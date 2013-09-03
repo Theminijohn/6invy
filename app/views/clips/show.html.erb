@@ -21,8 +21,10 @@
       <br>
 
       <div class="btn-wrapper">
-        <%= link_to "Visit the Show", @clip.user.show,
-                    class: "btn btn-block btn-embossed btn-primary" %>
+        <%= link_to @clip.user.show,
+                    class: "btn btn-block btn-embossed btn-primary" do %>
+          <i class="fui-arrow-right pull-right"></i> Visit the Show
+        <% end %>
       </div>
 
     </div>
@@ -80,15 +82,15 @@
     <div class="btn-group pull-right">
 
       <%= link_to  root_path, class: "btn btn-small btn-embossed" do %>
-        <i class="icon-arrow-left "></i> Back
+        <i class="fui-arrow-left "></i> Back
       <% end %>
       <% if current_user == @clip.user %>
         <%= link_to  edit_clip_path(@clip), class: "btn btn-small btn-embossed" do %>
-          <i class="icon-edit "></i> Edit
+          <i class="fui-new "></i> Edit
         <% end %>
 
         <%= link_to "#ClipDelete", title: "Delete your Clip", :data => {:toggle=>"modal"}, class: "btn btn-small btn-embossed btn-danger" do %>
-          <i class="icon-trash icon-white"></i> Delete
+          <i class="fui-trash"></i> Delete
         <% end %>
 
 

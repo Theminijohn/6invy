@@ -24,8 +24,10 @@
       <br>
 
       <div class="btn-wrapper">
-        <%= link_to "Visit the Show", @user.show,
-                    class: "btn btn-block btn-embossed btn-primary" %>
+        <%= link_to @user.show,
+                    class: "btn btn-block btn-embossed btn-primary" do %>
+          <i class="fui-arrow-right pull-right"></i> Visit the Show
+        <% end %>
       </div>
 
     </div><!-- Show Card End -->

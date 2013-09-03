@@ -6,8 +6,12 @@
   <div class="span3">
 
     <% if current_user == @host %>
-      <%= link_to "Edit your Show", edit_show_path,
-                  class: "btn btn-embossed btn-danger btn-block" %>
+
+      <%= link_to edit_show_path,
+                  class: "btn btn-embossed btn-danger btn-block" do %>
+        <i class="fui-gear pull-right"></i>Edit your Show
+
+      <% end %>
       <br>
     <% end %>
 
@@ -80,21 +84,21 @@
           <% if @show.facebook_link.present? %>
             <%= link_to @show.facebook_link, :target => '_blank',
                         class: "btn btn-embossed btn-mini btn-social-facebook" do %>
-              <i class="icon-facebook"></i> | Facebook
+              <i class="fui-facebook"></i> | Facebook
             <% end %>
           <% end %>
 
           <% if @show.twitter_link.present? %>
             <%= link_to @show.twitter_link, :target => '_blank',
                         class: "btn btn-embossed btn-mini btn-social-twitter" do %>
-              <i class="icon-twitter"></i> | Twitter
+              <i class="fui-twitter"></i> | Twitter
             <% end %>
           <% end %>
 
           <% if @show.instagram_link.present? %>
             <%= link_to @show.instagram_link, :target => '_blank',
                         class: "btn btn-embossed btn-mini btn-social-instagram" do %>
-              <i class="icon-instagram"></i> | Instagram
+              <i class="fui-photo"></i> | Instagram
             <% end %>
           <% end %>
         </div>
