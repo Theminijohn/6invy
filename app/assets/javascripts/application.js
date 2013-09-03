@@ -15,5 +15,4 @@
 //= require jquery.masonry.min.js
 //= require twitter/bootstrap
 //= require flatuipro
-//= require turbolinks
 //= require_tree .
