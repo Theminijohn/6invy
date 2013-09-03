@@ -9,8 +9,12 @@ class Clip < ActiveRecord::Base
 
 	belongs_to :user
 
-	def to_param
-		"#{id}-#{title.parameterize}"
+	extend FriendlyId
+	friendly_id :title, use: :slugged
+
+	def should_generate_new_friendly_id?
+		new_record?
 	end
+
 
 end

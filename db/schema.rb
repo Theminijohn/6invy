@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20130903110438) do
   end
 
   add_index "clips", ["slug"], name: "index_clips_on_slug"
+  add_index "clips", ["user_id"], name: "index_clips_on_user_id"
 
   create_table "shows", force: true do |t|
     t.string   "name"
