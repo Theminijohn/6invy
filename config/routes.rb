@@ -22,7 +22,7 @@ Vinerity::Application.routes.draw do
 
 	# User Profile
 	get "users/show"
-	get 'user/:id' => 'users#show', as: :user
+	get '/:id' => 'users#show', as: :user
 
 
 
