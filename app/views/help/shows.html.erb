@@ -1,0 +1,48 @@
+<ul class="breadcrumb">
+  <li><%= link_to "Help", help_path %></li>
+  <li class="active">Show's</li>
+</ul>
+
+<div class="row-fluid">
+
+  <div class="span3">
+
+    <ul class="nav invy-docs-sidenav">
+      <li><a href="#create"><i class="icon-chevron-right"></i> Create</a></li>
+      <li><a href="#"><i class="icon-chevron-right"></i> Customize</a></li>
+      <li><a href="#"><i class="icon-chevron-right"></i> Feedback</a></li>
+    </ul>
+
+
+  </div>
+
+  <div class="span9">
+
+    <div class="help-show-hero-unit">
+      <h2>Get your Show Starting</h2>
+    </div>
+
+    <div class="help-show-header" id="create">
+      <h4>Create your own Show</h4>
+      <small>
+        <% if user_signed_in? %>
+          Hey <%= current_user.first_name %>,
+          <% if current_user.show.present? %>
+              <% if current_user.show.cover.present? && current_user.show.avatar.present? && current_user.show.show_title.present? && current_user.show.facebook_link.present? %>
+                your show is <font color="green">fully customized</font>, <b>Good job !</b>
+              <% else %>
+                i see you have already a Show. <b>Lets customize it !</b>
+              <% end %>
+          <% else %>
+            it seems you haven't created a show yet. <b>Let's get Started !</b>
+          <% end %>
+        <% else %>
+        <% end %>
+      </small>
+    </div>
+
+
+
+  </div><!-- Span 9 End -->
+
+</div>

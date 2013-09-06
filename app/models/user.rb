@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
 	validates :first_name, :presence => true
 	# allow email blank for first create
-	validates :email, :presence => true
+	validates :email, :presence => true, :uniqueness => true
 	validates :user_name, :presence => true, :uniqueness => true
 
 	has_many :clips, dependent: :destroy
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
 	# Profile Page Avatar
 	has_attached_file :avatar, styles: { avatar: "64x64#"},
-										:default_url => "https://s3.amazonaws.com/6invy/new+folder/Assets/Missing-Images/64x64-profile-avatar-missing.PNG"
+										:default_url => "http://s3.amazonaws.com/6invy/new+folder/Assets/Missing-Images/64x64-profile-avatar-missing.PNG"
 
 	validates_attachment :avatar,
 											 content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },

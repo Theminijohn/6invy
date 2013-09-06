@@ -2,6 +2,15 @@
   <h1>Shows</h1>
   <h4>Pick amongst a variety of cool Shows</h4>
 
+  <!-- Learn more button -->
+  <% if user_signed_in? %>
+    <% unless current_user == @host%>
+      <small class="pull-right">
+        <%= link_to "Learn more", "help/shows" %>
+      </small>
+    <% end %>
+  <% end %>
+
 </div>
 
 <div id="clips-masonry" data-no-turbolink>

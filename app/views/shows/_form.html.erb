@@ -72,5 +72,32 @@
       <i class="fui-check pull-right"></i> Update
     <% end %>
 
+    <%= link_to "#ShowDelete", title: "Delete your Clip",
+                :data => {:toggle=>"modal"}, class: "btn btn-embossed btn-danger" do %>
+      <i class="fui-trash"></i> Delete
+    <% end %>
+
+
+
+    <div id="ShowDelete" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close fui-cross" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel"><%= @show.name %></h3>
+      </div>
+      <div class="modal-body">
+        <p>
+          Are you sure you want to Delete your Show?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <%= link_to @show, method: :delete,
+                    class: "btn btn-danger" do %>
+          <i class="fui-trash "></i> Delete
+        <% end %>
+      </div>
+    </div>
+
+
   </div>
 <% end %>

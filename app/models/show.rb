@@ -8,7 +8,7 @@ class Show < ActiveRecord::Base
 
 	# Show Cover
 	has_attached_file :cover, styles: { show_cover: "870x150#"},
-										:default_url => "https://s3.amazonaws.com/6invy/new+folder/Assets/Missing-Images/870x150-show-cover-missing+-+Kopie.PNG"
+										:default_url => "http://s3.amazonaws.com/6invy/new+folder/Assets/Missing-Images/870x150-show-cover-missing.PNG"
 
 	validates_attachment :cover,
 											 content_type: { content_type: ['image/jpeg', 'image/jpg',
@@ -17,7 +17,7 @@ class Show < ActiveRecord::Base
 
 	# Show Avatar
 	has_attached_file :avatar, styles: { avatar: "256x256#"},
-										:default_url => "https://s3.amazonaws.com/6invy/new+folder/Assets/Missing-Images/show-avatar-missing.png"
+										:default_url => "http://s3.amazonaws.com/6invy/new+folder/Assets/Missing-Images/256x256-show-avatar-missing.png"
 
 	validates_attachment :avatar,
 											 content_type: { content_type: ['image/jpeg', 'image/jpg',

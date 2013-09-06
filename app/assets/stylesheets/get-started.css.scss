@@ -27,11 +27,19 @@
 
 
 .demo-logo .logo {
-  background: url(http://i.imgur.com/5Gwb0yx.png) center 0 no-repeat;
+  background: url(http://s3.amazonaws.com/6invy/new+folder/Assets/get_started/get_started-head.png) center 0 no-repeat;
   background-size: 256px 186px;
   height: 186px;
   margin: 0 auto 26px;
   overflow: hidden;
   text-indent: -9999em;
   width: 256px;
+}
+
+.get_started-p {
+  font-size: 11px;
+  font-weight: 700;
+  display: block;
+  margin-top: -25px;
+
 }

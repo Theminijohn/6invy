@@ -32,14 +32,22 @@
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
         })();
       </script>
+
+      <!-- Learn more link-->
+      <% if user_signed_in? %>
+        <small class="pull-right">
+          <%= link_to "Learn more", "#" %>
+        </small>
+      <% end %>
+      <br>
     </div><!-- Clip Share Buttons END -->
 
     <br>
 
     <% if @show.announcement.present? %>
-    <div class="show_announcement show_announcement_badge ">
-      <%= @show.announcement %>
-    </div>
+      <div class="show_announcement show_announcement_badge ">
+        <%= @show.announcement %>
+      </div>
     <% end %>
 
     <% if @show.avatar.present? %>
@@ -59,13 +67,13 @@
       <div class="cover">
         <%= image_tag @show.cover(:show_cover) %>
 
-        <!-- Mouseover Options-->
+       <!-- &lt;!&ndash; Mouseover Options&ndash;&gt;
         <% if current_user == @host %>
           <div class="options">
             <%= link_to "Edit #{@show.name} Show", edit_show_path,
                         class: "btn btn-embossed btn-danger btn-mini" %>
           </div>
-        <% end %>
+        <% end %>-->
       </div>
 
 
