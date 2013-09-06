@@ -10183,13 +10183,11 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 })( jQuery );
 /**
- * jQuery Masonry v2.1.08
+ * jQuery Masonry for 6invy v2
  * A dynamic layout plugin for jQuery
  * The flip-side of CSS Floats
- * http://masonry.desandro.com
  *
  * Licensed under the MIT license.
- * Copyright 2012 David DeSandro
  */
 
 (function(e,t,n){"use strict";var r=t.event,i;r.special.smartresize={setup:function(){t(this).bind("resize",r.special.smartresize.handler)},teardown:function(){t(this).unbind("resize",r.special.smartresize.handler)},handler:function(e,t){var n=this,s=arguments;e.type="smartresize",i&&clearTimeout(i),i=setTimeout(function(){r.dispatch.apply(n,s)},t==="execAsap"?0:100)}},t.fn.smartresize=function(e){return e?this.bind("smartresize",e):this.trigger("smartresize",["execAsap"])},t.Mason=function(e,n){this.element=t(n),this._create(e),this._init()},t.Mason.settings={isResizable:!0,isAnimated:!1,animationOptions:{queue:!1,duration:500},gutterWidth:0,isRTL:!1,isFitWidth:!1,containerStyle:{position:"relative"}},t.Mason.prototype={_filterFindBricks:function(e){var t=this.options.itemSelector;return t?e.filter(t).add(e.find(t)):e},_getBricks:function(e){var t=this._filterFindBricks(e).css({position:"absolute"}).addClass("masonry-brick");return t},_create:function(n){this.options=t.extend(!0,{},t.Mason.settings,n),this.styleQueue=[];var r=this.element[0].style;this.originalStyle={height:r.height||""};var i=this.options.containerStyle;for(var s in i)this.originalStyle[s]=r[s]||"";this.element.css(i),this.horizontalDirection=this.options.isRTL?"right":"left";var o=this.element.css("padding-"+this.horizontalDirection),u=this.element.css("padding-top");this.offset={x:o?parseInt(o,10):0,y:u?parseInt(u,10):0},this.isFluid=this.options.columnWidth&&typeof this.options.columnWidth=="function";var a=this;setTimeout(function(){a.element.addClass("masonry")},0),this.options.isResizable&&t(e).bind("smartresize.masonry",function(){a.resize()}),this.reloadItems()},_init:function(e){this._getColumns(),this._reLayout(e)},option:function(e,n){t.isPlainObject(e)&&(this.options=t.extend(!0,this.options,e))},layout:function(e,t){for(var n=0,r=e.length;n<r;n++)this._placeBrick(e[n]);var i={};i.height=Math.max.apply(Math,this.colYs);if(this.options.isFitWidth){var s=0;n=this.cols;while(--n){if(this.colYs[n]!==0)break;s++}i.width=(this.cols-s)*this.columnWidth-this.options.gutterWidth}this.styleQueue.push({$el:this.element,style:i});var o=this.isLaidOut?this.options.isAnimated?"animate":"css":"css",u=this.options.animationOptions,a;for(n=0,r=this.styleQueue.length;n<r;n++)a=this.styleQueue[n],a.$el[o](a.style,u);this.styleQueue=[],t&&t.call(e),this.isLaidOut=!0},_getColumns:function(){var e=this.options.isFitWidth?this.element.parent():this.element,t=e.width();this.columnWidth=this.isFluid?this.options.columnWidth(t):this.options.columnWidth||this.$bricks.outerWidth(!0)||t,this.columnWidth+=this.options.gutterWidth,this.cols=Math.floor((t+this.options.gutterWidth)/this.columnWidth),this.cols=Math.max(this.cols,1)},_placeBrick:function(e){var n=t(e),r,i,s,o,u;r=Math.ceil(n.outerWidth(!0)/this.columnWidth),r=Math.min(r,this.cols);if(r===1)s=this.colYs;else{i=this.cols+1-r,s=[];for(u=0;u<i;u++)o=this.colYs.slice(u,u+r),s[u]=Math.max.apply(Math,o)}var a=Math.min.apply(Math,s),f=0;for(var l=0,c=s.length;l<c;l++)if(s[l]===a){f=l;break}var h={top:a+this.offset.y};h[this.horizontalDirection]=this.columnWidth*f+this.offset.x,this.styleQueue.push({$el:n,style:h});var p=a+n.outerHeight(!0),d=this.cols+1-c;for(l=0;l<d;l++)this.colYs[f+l]=p},resize:function(){var e=this.cols;this._getColumns(),(this.isFluid||this.cols!==e)&&this._reLayout()},_reLayout:function(e){var t=this.cols;this.colYs=[];while(t--)this.colYs.push(0);this.layout(this.$bricks,e)},reloadItems:function(){this.$bricks=this._getBricks(this.element.children())},reload:function(e){this.reloadItems(),this._init(e)},appended:function(e,t,n){if(t){this._filterFindBricks(e).css({top:this.element.height()});var r=this;setTimeout(function(){r._appended(e,n)},1)}else this._appended(e,n)},_appended:function(e,t){var n=this._getBricks(e);this.$bricks=this.$bricks.add(n),this.layout(n,t)},remove:function(e){this.$bricks=this.$bricks.not(e),e.remove()},destroy:function(){this.$bricks.removeClass("masonry-brick").each(function(){this.style.position="",this.style.top="",this.style.left=""});var n=this.element[0].style;for(var r in this.originalStyle)n[r]=this.originalStyle[r];this.element.unbind(".masonry").removeClass("masonry").removeData("masonry"),t(e).unbind(".masonry")}},t.fn.imagesLoaded=function(e){function u(){e.call(n,r)}function a(e){var n=e.target;n.src!==s&&t.inArray(n,o)===-1&&(o.push(n),--i<=0&&(setTimeout(u),r.unbind(".imagesLoaded",a)))}var n=this,r=n.find("img").add(n.filter("img")),i=r.length,s="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",o=[];return i||u(),r.bind("load.imagesLoaded error.imagesLoaded",a).each(function(){var e=this.src;this.src=s,this.src=e}),n};var s=function(t){e.console&&e.console.error(t)};t.fn.masonry=function(e){if(typeof e=="string"){var n=Array.prototype.slice.call(arguments,1);this.each(function(){var r=t.data(this,"masonry");if(!r){s("cannot call methods on masonry prior to initialization; attempted to call method '"+e+"'");return}if(!t.isFunction(r[e])||e.charAt(0)==="_"){s("no such method '"+e+"' for masonry instance");return}r[e].apply(r,n)})}else this.each(function(){var n=t.data(this,"masonry");n?(n.option(e||{}),n._init()):t.data(this,"masonry",new t.Mason(e,this))});return this}})(window,jQuery);
@@ -14011,425 +14009,13 @@ $(function () {
 
 
 (function() {
-  var CSRFToken, anchoredLink, browserCompatibleDocumentParser, browserIsntBuggy, browserSupportsPushState, cacheCurrentPage, cacheSize, changePage, constrainPageCacheTo, createDocument, crossOriginLink, currentState, executeScriptTags, extractLink, extractTitleAndBody, fetchHistory, fetchReplacement, handleClick, ignoreClick, initializeTurbolinks, installClickHandlerLast, loadedAssets, noTurbolink, nonHtmlLink, nonStandardClick, pageCache, pageChangePrevented, pagesCached, processResponse, recallScrollPosition, referer, reflectNewUrl, reflectRedirectedUrl, rememberCurrentState, rememberCurrentUrl, removeHash, removeNoscriptTags, requestMethod, requestMethodIsSafe, resetScrollPosition, targetLink, triggerEvent, visit, xhr, _ref,
-    __hasProp = {}.hasOwnProperty,
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
-  cacheSize = 10;
-
-  currentState = null;
-
-  referer = null;
-
-  loadedAssets = null;
-
-  pageCache = {};
-
-  createDocument = null;
-
-  requestMethod = ((_ref = document.cookie.match(/request_method=(\w+)/)) != null ? _ref[1].toUpperCase() : void 0) || '';
-
-  xhr = null;
-
-  fetchReplacement = function(url) {
-    var safeUrl;
-    triggerEvent('page:fetch');
-    safeUrl = removeHash(url);
-    if (xhr != null) {
-      xhr.abort();
+  $(document).on('page:change', function() {
+    if (window._gaq != null) {
+      return _gaq.push(['_trackPageview']);
+    } else if (window.pageTracker != null) {
+      return pageTracker._trackPageview();
     }
-    xhr = new XMLHttpRequest;
-    xhr.open('GET', safeUrl, true);
-    xhr.setRequestHeader('Accept', 'text/html, application/xhtml+xml, application/xml');
-    xhr.setRequestHeader('X-XHR-Referer', referer);
-    xhr.onload = function() {
-      var doc;
-      triggerEvent('page:receive');
-      if (doc = processResponse()) {
-        reflectNewUrl(url);
-        changePage.apply(null, extractTitleAndBody(doc));
-        reflectRedirectedUrl();
-        if (document.location.hash) {
-          document.location.href = document.location.href;
-        } else {
-          resetScrollPosition();
-        }
-        return triggerEvent('page:load');
-      } else {
-        return document.location.href = url;
-      }
-    };
-    xhr.onloadend = function() {
-      return xhr = null;
-    };
-    xhr.onabort = function() {
-      return rememberCurrentUrl();
-    };
-    xhr.onerror = function() {
-      return document.location.href = url;
-    };
-    return xhr.send();
-  };
-
-  fetchHistory = function(position) {
-    var page;
-    cacheCurrentPage();
-    page = pageCache[position];
-    if (xhr != null) {
-      xhr.abort();
-    }
-    changePage(page.title, page.body);
-    recallScrollPosition(page);
-    return triggerEvent('page:restore');
-  };
-
-  cacheCurrentPage = function() {
-    pageCache[currentState.position] = {
-      url: document.location.href,
-      body: document.body,
-      title: document.title,
-      positionY: window.pageYOffset,
-      positionX: window.pageXOffset
-    };
-    return constrainPageCacheTo(cacheSize);
-  };
-
-  pagesCached = function(size) {
-    if (size == null) {
-      size = cacheSize;
-    }
-    if (/^[\d]+$/.test(size)) {
-      return cacheSize = parseInt(size);
-    }
-  };
-
-  constrainPageCacheTo = function(limit) {
-    var key, value;
-    for (key in pageCache) {
-      if (!__hasProp.call(pageCache, key)) continue;
-      value = pageCache[key];
-      if (key <= currentState.position - limit) {
-        pageCache[key] = null;
-      }
-    }
-  };
-
-  changePage = function(title, body, csrfToken, runScripts) {
-    document.title = title;
-    document.documentElement.replaceChild(body, document.body);
-    if (csrfToken != null) {
-      CSRFToken.update(csrfToken);
-    }
-    removeNoscriptTags();
-    if (runScripts) {
-      executeScriptTags();
-    }
-    currentState = window.history.state;
-    return triggerEvent('page:change');
-  };
-
-  executeScriptTags = function() {
-    var attr, copy, nextSibling, parentNode, script, scripts, _i, _j, _len, _len1, _ref1, _ref2;
-    scripts = Array.prototype.slice.call(document.body.querySelectorAll('script:not([data-turbolinks-eval="false"])'));
-    for (_i = 0, _len = scripts.length; _i < _len; _i++) {
-      script = scripts[_i];
-      if (!((_ref1 = script.type) === '' || _ref1 === 'text/javascript')) {
-        continue;
-      }
-      copy = document.createElement('script');
-      _ref2 = script.attributes;
-      for (_j = 0, _len1 = _ref2.length; _j < _len1; _j++) {
-        attr = _ref2[_j];
-        copy.setAttribute(attr.name, attr.value);
-      }
-      copy.appendChild(document.createTextNode(script.innerHTML));
-      parentNode = script.parentNode, nextSibling = script.nextSibling;
-      parentNode.removeChild(script);
-      parentNode.insertBefore(copy, nextSibling);
-    }
-  };
-
-  removeNoscriptTags = function() {
-    var noscript, noscriptTags, _i, _len;
-    noscriptTags = Array.prototype.slice.call(document.body.getElementsByTagName('noscript'));
-    for (_i = 0, _len = noscriptTags.length; _i < _len; _i++) {
-      noscript = noscriptTags[_i];
-      noscript.parentNode.removeChild(noscript);
-    }
-  };
-
-  reflectNewUrl = function(url) {
-    if (url !== referer) {
-      return window.history.pushState({
-        turbolinks: true,
-        position: currentState.position + 1
-      }, '', url);
-    }
-  };
-
-  reflectRedirectedUrl = function() {
-    var location, preservedHash;
-    if (location = xhr.getResponseHeader('X-XHR-Redirected-To')) {
-      preservedHash = removeHash(location) === location ? document.location.hash : '';
-      return window.history.replaceState(currentState, '', location + preservedHash);
-    }
-  };
-
-  rememberCurrentUrl = function() {
-    return window.history.replaceState({
-      turbolinks: true,
-      position: Date.now()
-    }, '', document.location.href);
-  };
-
-  rememberCurrentState = function() {
-    return currentState = window.history.state;
-  };
-
-  recallScrollPosition = function(page) {
-    return window.scrollTo(page.positionX, page.positionY);
-  };
-
-  resetScrollPosition = function() {
-    return window.scrollTo(0, 0);
-  };
-
-  removeHash = function(url) {
-    var link;
-    link = url;
-    if (url.href == null) {
-      link = document.createElement('A');
-      link.href = url;
-    }
-    return link.href.replace(link.hash, '');
-  };
-
-  triggerEvent = function(name) {
-    var event;
-    event = document.createEvent('Events');
-    event.initEvent(name, true, true);
-    return document.dispatchEvent(event);
-  };
-
-  pageChangePrevented = function() {
-    return !triggerEvent('page:before-change');
-  };
-
-  processResponse = function() {
-    var assetsChanged, clientOrServerError, doc, extractTrackAssets, intersection, validContent;
-    clientOrServerError = function() {
-      var _ref1;
-      return (400 <= (_ref1 = xhr.status) && _ref1 < 600);
-    };
-    validContent = function() {
-      return xhr.getResponseHeader('Content-Type').match(/^(?:text\/html|application\/xhtml\+xml|application\/xml)(?:;|$)/);
-    };
-    extractTrackAssets = function(doc) {
-      var node, _i, _len, _ref1, _results;
-      _ref1 = doc.head.childNodes;
-      _results = [];
-      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-        node = _ref1[_i];
-        if ((typeof node.getAttribute === "function" ? node.getAttribute('data-turbolinks-track') : void 0) != null) {
-          _results.push(node.src || node.href);
-        }
-      }
-      return _results;
-    };
-    assetsChanged = function(doc) {
-      var fetchedAssets;
-      loadedAssets || (loadedAssets = extractTrackAssets(document));
-      fetchedAssets = extractTrackAssets(doc);
-      return fetchedAssets.length !== loadedAssets.length || intersection(fetchedAssets, loadedAssets).length !== loadedAssets.length;
-    };
-    intersection = function(a, b) {
-      var value, _i, _len, _ref1, _results;
-      if (a.length > b.length) {
-        _ref1 = [b, a], a = _ref1[0], b = _ref1[1];
-      }
-      _results = [];
-      for (_i = 0, _len = a.length; _i < _len; _i++) {
-        value = a[_i];
-        if (__indexOf.call(b, value) >= 0) {
-          _results.push(value);
-        }
-      }
-      return _results;
-    };
-    if (!clientOrServerError() && validContent()) {
-      doc = createDocument(xhr.responseText);
-      if (doc && !assetsChanged(doc)) {
-        return doc;
-      }
-    }
-  };
-
-  extractTitleAndBody = function(doc) {
-    var title;
-    title = doc.querySelector('title');
-    return [title != null ? title.textContent : void 0, doc.body, CSRFToken.get(doc).token, 'runScripts'];
-  };
-
-  CSRFToken = {
-    get: function(doc) {
-      var tag;
-      if (doc == null) {
-        doc = document;
-      }
-      return {
-        node: tag = doc.querySelector('meta[name="csrf-token"]'),
-        token: tag != null ? typeof tag.getAttribute === "function" ? tag.getAttribute('content') : void 0 : void 0
-      };
-    },
-    update: function(latest) {
-      var current;
-      current = this.get();
-      if ((current.token != null) && (latest != null) && current.token !== latest) {
-        return current.node.setAttribute('content', latest);
-      }
-    }
-  };
-
-  browserCompatibleDocumentParser = function() {
-    var createDocumentUsingDOM, createDocumentUsingParser, createDocumentUsingWrite, e, testDoc, _ref1;
-    createDocumentUsingParser = function(html) {
-      return (new DOMParser).parseFromString(html, 'text/html');
-    };
-    createDocumentUsingDOM = function(html) {
-      var doc;
-      doc = document.implementation.createHTMLDocument('');
-      doc.documentElement.innerHTML = html;
-      return doc;
-    };
-    createDocumentUsingWrite = function(html) {
-      var doc;
-      doc = document.implementation.createHTMLDocument('');
-      doc.open('replace');
-      doc.write(html);
-      doc.close();
-      return doc;
-    };
-    try {
-      if (window.DOMParser) {
-        testDoc = createDocumentUsingParser('<html><body><p>test');
-        return createDocumentUsingParser;
-      }
-    } catch (_error) {
-      e = _error;
-      testDoc = createDocumentUsingDOM('<html><body><p>test');
-      return createDocumentUsingDOM;
-    } finally {
-      if ((testDoc != null ? (_ref1 = testDoc.body) != null ? _ref1.childNodes.length : void 0 : void 0) !== 1) {
-        return createDocumentUsingWrite;
-      }
-    }
-  };
-
-  installClickHandlerLast = function(event) {
-    if (!event.defaultPrevented) {
-      document.removeEventListener('click', handleClick, false);
-      return document.addEventListener('click', handleClick, false);
-    }
-  };
-
-  handleClick = function(event) {
-    var link;
-    if (!event.defaultPrevented) {
-      link = extractLink(event);
-      if (link.nodeName === 'A' && !ignoreClick(event, link)) {
-        if (!pageChangePrevented()) {
-          visit(link.href);
-        }
-        return event.preventDefault();
-      }
-    }
-  };
-
-  extractLink = function(event) {
-    var link;
-    link = event.target;
-    while (!(!link.parentNode || link.nodeName === 'A')) {
-      link = link.parentNode;
-    }
-    return link;
-  };
-
-  crossOriginLink = function(link) {
-    return location.protocol !== link.protocol || location.host !== link.host;
-  };
-
-  anchoredLink = function(link) {
-    return ((link.hash && removeHash(link)) === removeHash(location)) || (link.href === location.href + '#');
-  };
-
-  nonHtmlLink = function(link) {
-    var url;
-    url = removeHash(link);
-    return url.match(/\.[a-z]+(\?.*)?$/g) && !url.match(/\.html?(\?.*)?$/g);
-  };
-
-  noTurbolink = function(link) {
-    var ignore;
-    while (!(ignore || link === document)) {
-      ignore = link.getAttribute('data-no-turbolink') != null;
-      link = link.parentNode;
-    }
-    return ignore;
-  };
-
-  targetLink = function(link) {
-    return link.target.length !== 0;
-  };
-
-  nonStandardClick = function(event) {
-    return event.which > 1 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
-  };
-
-  ignoreClick = function(event, link) {
-    return crossOriginLink(link) || anchoredLink(link) || nonHtmlLink(link) || noTurbolink(link) || targetLink(link) || nonStandardClick(event);
-  };
-
-  initializeTurbolinks = function() {
-    rememberCurrentUrl();
-    rememberCurrentState();
-    createDocument = browserCompatibleDocumentParser();
-    document.addEventListener('click', installClickHandlerLast, true);
-    return window.addEventListener('popstate', function(event) {
-      var state;
-      state = event.state;
-      if (state != null ? state.turbolinks : void 0) {
-        if (pageCache[state.position]) {
-          return fetchHistory(state.position);
-        } else {
-          return visit(event.target.location.href);
-        }
-      }
-    }, false);
-  };
-
-  browserSupportsPushState = window.history && window.history.pushState && window.history.replaceState && window.history.state !== void 0;
-
-  browserIsntBuggy = !navigator.userAgent.match(/CriOS\//);
-
-  requestMethodIsSafe = requestMethod === 'GET' || requestMethod === '';
-
-  if (browserSupportsPushState && browserIsntBuggy && requestMethodIsSafe) {
-    visit = function(url) {
-      referer = document.location.href;
-      cacheCurrentPage();
-      return fetchReplacement(url);
-    };
-    initializeTurbolinks();
-  } else {
-    visit = function(url) {
-      return document.location.href = url;
-    };
-  }
-
-  this.Turbolinks = {
-    visit: visit,
-    pagesCached: pagesCached
-  };
+  });
 
 }).call(this);
 (function() {
@@ -14440,7 +14026,24 @@ $(function () {
 
 }).call(this);
 (function() {
-
+  jQuery(function() {
+    return $('#clips-masonry').imagesLoaded(function() {
+      $('#clips-masonry').masonry({
+        itemSelector: ".clips-masonry"
+      });
+      if ($('.pagination').length) {
+        return $(window).scroll(function() {
+          var url;
+          url = $('.pagination .next_page a').attr('href');
+          if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+            $('.pagination').text("Fetching more Clips...");
+            $.getScript(url);
+          }
+          return $(window).scroll();
+        });
+      }
+    });
+  });
 
 }).call(this);
 // Some general UI pack related JS
@@ -14642,6 +14245,14 @@ String.prototype.repeat = function(num) {
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
+(function() {
+
+
+}).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -14654,7 +14265,6 @@ String.prototype.repeat = function(num) {
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
 
 
 
