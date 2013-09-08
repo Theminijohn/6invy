@@ -1,12 +1,12 @@
 <%= simple_form_for(@clip) do |f| %>
   <%= f.error_notification %>
 
-  <form action=""></form>
+  <form action="">
 
 
 
   <!-- New Form -->
-  <form class="sign-up">
+  <div class="sign-up">
     <h1 class="sign-up-title">Add a Clip</h1>
     <%= f.input :title, input_html: { class: 'login-form-block'},
                 :autofocus=>true, label: false, placeholder: "Title",
@@ -29,8 +29,8 @@
     <%= button_tag(type: 'submit', class: "btn btn-info btn-embossed btn-block") do %>
       <i class="fui-plus pull-right"></i> Upload
     <% end %>
+  </div>
   </form>
-
 
 
 
