@@ -89,10 +89,13 @@
 
 .show_announcement {
   background-color: #f7f7f5;
+  -moz-box-shadow: 0px 1.6px 5px #ccc;
+  -webkit-box-shadow: 0px 1.6px 5px #ccc;
+  box-shadow: 0px 1.6px 5px #ccc;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 3px;;
   padding: 15px 15px 15px;
 }
 
@@ -124,16 +127,25 @@
 
 .clip-share-buttons {
   background-color: #f5f5f1;
+  -moz-box-shadow: 0px 1.6px 5px #ccc;
+  -webkit-box-shadow: 0px 1.6px 5px #ccc;
+  box-shadow: 0px 1.6px 5px #ccc;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 3px;;
   padding: 15px 15px 15px;
 }
 
 .show-share-buttons {
   background-color: #f5f5f1;
-  border-radius: 4px;
+  -moz-box-shadow: 0px 1.6px 5px #ccc;
+  -webkit-box-shadow: 0px 1.6px 5px #ccc;
+  box-shadow: 0px 1.6px 5px #ccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;;
   padding: 15px 15px 15px;
 }
 

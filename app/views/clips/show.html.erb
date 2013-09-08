@@ -8,22 +8,18 @@
       <div id="widget">
 
         <div class="photos">
-          <%= image_tag @clip.user.show.cover %>
+          <%= image_tag @clip.user.show.avatar %>
         </div>
 
         <div class="info">
 
           <div class="profile">
-            <%= image_tag @clip.user.show.avatar(:avatar) %>
+            <%= image_tag @clip.user.avatar(:avatar) %>
           </div>
 
           <p class="name">
             <%= link_to @clip.user.show.name, @clip.user.show %>
           </p>
-
-          <div class="sf">
-
-          </div>
 
         </div>
       </div>

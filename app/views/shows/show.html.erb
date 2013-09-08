@@ -15,6 +15,40 @@
       <br>
     <% end %>
 
+    <!-- Show Widget -->
+    <% if @show.avatar.present? %>
+      <div class="wrapper">
+        <div id="widget">
+
+          <div class="photos">
+            <%= image_tag @show.avatar %>
+          </div>
+
+          <div class="info">
+
+            <div class="profile">
+              <%= image_tag @host.avatar(:avatar) %>
+            </div>
+
+            <p class="name">
+              <%= link_to @show.name, @show %>
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <br>
+    <% end %><!-- Show Widget End -->
+
+    <!-- Show Announcement -->
+    <% if @show.announcement.present? %>
+      <div class="show_announcement show_announcement_badge ">
+        <%= @show.announcement %>
+      </div>
+      <br>
+    <% end %><!-- Show announcement End -->
+
+
     <div class="show-share-buttons">
       <fb:like href="<%= request.original_url %>" width="100%" layout="button_count" show_faces="false" send="true"></fb:like>
       <br>
@@ -42,20 +76,9 @@
       <br>
     </div><!-- Clip Share Buttons END -->
 
-    <br>
 
-    <% if @show.announcement.present? %>
-      <div class="show_announcement show_announcement_badge ">
-        <%= @show.announcement %>
-      </div>
-    <% end %>
 
-    <% if @show.avatar.present? %>
-      <br>
-      <div class="show_avatar">
-        <%= image_tag @show.avatar(:avatar), class: "show_avatar_picture" %>
-      </div>
-    <% end %>
+
 
 
   </div>
