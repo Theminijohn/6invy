@@ -4,29 +4,29 @@
 
   <div class="span3" data-no-turbolink>
 
-    <div id="show-card">
+    <div class="wrapper">
+      <div id="widget">
 
-      <div class="img-wrapper">
-        <%= image_tag @clip.user.show.avatar %>
+        <div class="photos">
+          <%= image_tag @clip.user.show.cover %>
+        </div>
+
+        <div class="info">
+
+          <div class="profile">
+            <%= image_tag @clip.user.show.avatar(:avatar) %>
+          </div>
+
+          <p class="name">
+            <%= link_to @clip.user.show.name %>
+          </p>
+
+          <div class="sf">
+
+          </div>
+
+        </div>
       </div>
-
-      <h1>
-        <%= @clip.user.show.name %>
-      </h1>
-
-      <h2>
-        <%= @clip.user.show.show_title %>
-      </h2>
-
-      <br>
-
-      <div class="btn-wrapper">
-        <%= link_to @clip.user.show,
-                    class: "btn btn-block btn-embossed btn-primary" do %>
-          <i class="fui-arrow-right pull-right"></i> Visit the Show
-        <% end %>
-      </div>
-
     </div>
 
 
@@ -50,6 +50,7 @@
         })();
       </script>
     </div><!-- Clip Share Buttons END -->
+
 
   </div>
 
