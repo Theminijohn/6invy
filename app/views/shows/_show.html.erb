@@ -1,24 +1,21 @@
-<div class="show-show-page-show clips-masonry">
-  <div id="show-card">
+<!-- Show Widget -->
+  <div class="wrapper clips-masonry padding">
+    <div id="widget">
 
-    <div class="img-wrapper">
-      <%= image_tag show.avatar %>
+      <div class="photos">
+        <%= image_tag show.avatar %>
+      </div>
+
+      <div class="info">
+
+        <div class="profile">
+          <%= image_tag show.user.avatar(:avatar) %>
+        </div>
+
+        <p class="name">
+          <%= link_to show.name, show %>
+        </p>
+
+      </div>
     </div>
-
-    <h1>
-      <%= show.name %>
-    </h1>
-
-    <h2>
-      <%= show.show_title %>
-    </h2>
-
-    <br>
-
-    <div class="btn-wrapper">
-      <%= link_to "Visit the Show", show,
-                  class: "btn btn-block btn-embossed btn-primary" %>
-    </div>
-
-  </div>
-</div>
+  </div><!-- Show Widget End -->

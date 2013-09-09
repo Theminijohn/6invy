@@ -26,4 +26,5 @@ Vinerity::Application.routes.draw do
 
 
 
+
 end

@@ -2,6 +2,8 @@ class Show < ActiveRecord::Base
 
 	belongs_to :user
 
+	acts_as_followable
+
 	validates :name, :presence => true, :uniqueness => true, length: { maximum: 25 }
 	validates :announcement, length: { maximum: 140 }
 	validates :show_title, length: { maximum: 70 }

@@ -70,3 +70,6 @@ gem 'bootstrap-will_paginate'
 
 # Friendly ID
 gem 'friendly_id', '5.0.0.beta4'
+
+# Follow Gem
+gem "acts_as_follower"

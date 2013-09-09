@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
 	attr_accessor :just_signed_up
 
+	acts_as_follower
+
 
 	# Facebook Settings
 	def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
