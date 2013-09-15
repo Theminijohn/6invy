@@ -1,10 +1,7 @@
 <%= simple_form_for(@clip) do |f| %>
   <%= f.error_notification %>
 
-  <form action="">
-
-
-
+  <form>
   <!-- New Form -->
   <div class="sign-up">
     <h1 class="sign-up-title">Add a Clip</h1>
@@ -26,14 +23,21 @@
 
     <br>
 
+    <% grouped_options = {
+            'Albums' => @current_user.albums { |album| [album.name, "#{album.id}-Album"] },
+            'Show' => [@current_user.show.name]}
+    %>
+
+    <%= select :clip, :attachable_id, grouped_options_for_select(grouped_options) %>
+
+
+
+    <br>
+
     <%= button_tag(type: 'submit', class: "btn btn-info btn-embossed btn-block") do %>
       <i class="fui-plus pull-right"></i> Upload
     <% end %>
   </div>
   </form>
-
-
-
-
 
 <% end %>

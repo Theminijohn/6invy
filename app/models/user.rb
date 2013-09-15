@@ -31,12 +31,15 @@ class User < ActiveRecord::Base
 
 
 	validates :first_name, :presence => true
-	# allow email blank for first create
 	validates :email, :presence => true, :uniqueness => true
 	validates :user_name, :presence => true, :uniqueness => true
 
-	has_many :clips, dependent: :destroy
-	has_one :show, dependent: :destroy
+	# Polymorphic Associations
+	# http://guides.rubyonrails.org/association_basics.html#polymorphic-associations
+
+	has_one :show, :dependent => :destroy
+	has_many :clips, :dependent => :destroy
+	has_many :albums, :dependent => :destroy
 
 	# Profile Page Avatar
 	has_attached_file :avatar, styles: { avatar: "64x64#"},

@@ -7,7 +7,9 @@ class Clip < ActiveRecord::Base
 	validates :vine_link, :presence => true, :if => Proc.new {instagram_link.blank?}
 	validates :instagram_link, :presence => true, :if => Proc.new {vine_link.blank?}
 
+	# Polymorphic Associations
 	belongs_to :user
+	belongs_to :attachable, :polymorphic => true
 
 	extend FriendlyId
 	friendly_id :title, use: :slugged

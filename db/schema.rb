@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909133209) do
+ActiveRecord::Schema.define(version: 20130915164905) do
+
+  create_table "albums", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "albums", ["user_id"], name: "index_albums_on_user_id"
 
   create_table "clips", force: true do |t|
     t.string   "title"
@@ -21,8 +30,11 @@ ActiveRecord::Schema.define(version: 20130909133209) do
     t.string   "vine_link"
     t.string   "instagram_link"
     t.string   "slug"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
   end
 
+  add_index "clips", ["attachable_id", "attachable_type"], name: "index_clips_on_attachable_id_and_attachable_type"
   add_index "clips", ["slug"], name: "index_clips_on_slug"
   add_index "clips", ["user_id"], name: "index_clips_on_user_id"
 

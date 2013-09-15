@@ -8,9 +8,12 @@
   <!-- New Form -->
   <div class="sign-up">
     <h1 class="sign-up-title">Login</h1>
-    <%= f.input :email, input_html: { class: 'login-form-block'},
-                :autofocus=>true, label: false, placeholder: "Email" %>
+
+    <%= f.input :email, input_html: { class: 'login-form-block' },
+                label: false, placeholder: "Email"%>
+
     <br>
+
     <%= f.input :password, input_html: { class: 'login-form-block' },
                 label: false, placeholder: "Password"%>
 

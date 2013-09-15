@@ -1,5 +1,7 @@
 Vinerity::Application.routes.draw do
 
+  resources :albums
+
 	root :to => 'clips#index'
 
   resources :clips

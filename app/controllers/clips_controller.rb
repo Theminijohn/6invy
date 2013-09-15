@@ -34,6 +34,7 @@ class ClipsController < ApplicationController
 		@clip = current_user.clips.build(clip_params)
 
 		respond_to do |format|
+			binding.pry
 			if @clip.save
 				format.html { redirect_to @clip, notice: 'Clip was successfully created.' }
 				format.json { render action: 'show', status: :created, location: @clip }
@@ -76,6 +77,6 @@ class ClipsController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def clip_params
-		params.require(:clip).permit(:title, :vine_link, :instagram_link)
+		params.require(:clip).permit(:title, :vine_link, :instagram_link, :attachable_id, :attachable_type)
 	end
 end

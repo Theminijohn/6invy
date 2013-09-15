@@ -17,11 +17,13 @@ class ShowsController < ApplicationController
 		@show = Show.find_by_name!(params[:id])
 		@host = @show.user
 		@clips = @host.clips
+
   end
 
   # GET /shows/new
   def new
     @show = current_user.build_show
+		@show_count = Show.count
   end
 
   # GET /shows/1/edit

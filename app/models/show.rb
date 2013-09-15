@@ -1,6 +1,8 @@
 class Show < ActiveRecord::Base
 
+	# Polymorphic Associations
 	belongs_to :user
+	has_many :clips, :as => :attachable
 
 	acts_as_followable
 

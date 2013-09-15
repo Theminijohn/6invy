@@ -10,6 +10,7 @@
         <ul class="nav pull-right">
           <li class="divider"></li>
           <li><%= link_to "Shows", shows_path %></li>
+          <li><%= link_to "Albums", albums_path %></li>
 
             <% if user_signed_in? %>
               <% if current_user.show.present? %>

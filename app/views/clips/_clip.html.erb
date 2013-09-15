@@ -1,3 +1,4 @@
+<% if clip.user.show.present? %> <!-- If Show is Present then show Clip-->
 <div class="clip-box clips-masonry" data-no-turbolink>
 
   <% if clip.vine_link.present? %>
@@ -39,3 +40,4 @@
   </p>
 
 </div>
+<% end %>

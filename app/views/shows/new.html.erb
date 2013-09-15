@@ -1,5 +1,61 @@
-<h1>New show</h1>
+<div class="open-wrap">
+  <div class="open-content">
+    <div class="open-header-action clearfix">
+      <h1>Your very own beautiful Show. Unlike any other.</h1>
+      <h3>Easy. Fast. Customizable. <strong style="color:#3498DB">Fun.</strong></h3>
+    </div>
+  </div>
+</div>
 
-<%= render 'form' %>
+<br>
+<center>
+  <%= link_to "#createshow", title: "Create your Show",
+              :data => {:toggle=>"modal"}, class: "btn btn-embossed btn-info btn-huge" do %>
+    <i class="fui-heart"></i> Create your Show
+  <% end %>
+</center>
 
-<%= link_to 'Back', shows_path %>
+
+<div id="createshow" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close fui-cross" data-dismiss="modal" aria-hidden="true"></button>
+    <h3 id="myModalLabel">Create your own Show</h3>
+  </div>
+  <div class="modal-body">
+
+    <center>
+      Hey <%= current_user.first_name %>, lets start by telling me your Show's Name
+    </center>
+
+    <center>
+      <%= simple_form_for(@show) do |f| %>
+        <%= f.error_notification %>
+        <!-- Show Name Field -->
+        <div class="control-group">
+          <label class="control-label"></label>
+          <div class="controls input-append">
+            <%= f.input :name, label: false, :wrapper => :append do %>
+              <%= f.input_field :name, placeholder: "Your Show's Name", label: false %>
+              <span class="add-on fui-windows"></span>
+            <% end %>
+          </div>
+        </div>
+     </center>
+     <br>
+     <br>
+
+
+
+  </div>
+  <div class="modal-footer">
+      <%= button_tag(type: 'submit', class: "btn btn-primary btn-embossed") do %>
+        <i class="fui-check pull-right"></i> Create &nbsp;
+      <% end %>
+  </div>
+    <% end %>
+</div>
+
+<br>
+
+
+
